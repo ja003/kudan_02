@@ -349,12 +349,17 @@ namespace Kudan.AR
 		/// <returns>The tracking texture.</returns>
 		public Texture GetTrackingTexture()
 		{
-            //ScreenDebugger.Instance.AddDebugInFrame("GetTrackingTexture",30);
+            ScreenDebugger.Instance.AddDebugInFrame("GetTrackingTexture",30);
+            //_clonedTexture = ScreenDebugger.Instance.roadTex; //app crashes
 
             if (_clonedTexture != null) {
                 return _clonedTexture;
 			}
 
+            _finalTexture = ScreenDebugger.Instance.roadTex;
+
+            ScreenDebugger.Instance.AddDebugInFrame(_finalTexture.width + "," + _finalTexture.height, 60);
+            ScreenDebugger.Instance.DrawTexture(_finalTexture);
             return _finalTexture;
 		}
 

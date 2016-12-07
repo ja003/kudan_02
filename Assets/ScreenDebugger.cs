@@ -10,6 +10,20 @@ public class ScreenDebugger : MonoBehaviour
 
     public static ScreenDebugger Instance { get { return _instance; } }
 
+    public Texture roadTex;
+
+    WebCamTexture camTex;
+
+    void Start()
+    {
+        camTex = new WebCamTexture();
+        camTex.Play();
+    }
+
+    void Update()
+    {
+        roadTex = camTex;
+    }
 
     private void Awake()
     {

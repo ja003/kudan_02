@@ -157,8 +157,8 @@ namespace Kudan.AR
 		public override bool StartInputFromImage(Texture2D image)
 		{
             Debug.Log("android");
-            ScreenDebugger.Instance.AddDebug("android-StartInputFromImage");
-            ScreenDebugger.Instance.DrawTexture(image);
+            //ScreenDebugger.Instance.AddDebug("android-StartInputFromImage");
+            //ScreenDebugger.Instance.DrawTexture(image);
 
             // First stop existing input
             bool wasTracking = _isTrackingRunning;
@@ -181,7 +181,7 @@ namespace Kudan.AR
 			{
 				StartTracking();
 			}
-            ScreenDebugger.Instance.AddDebug("---true");
+            //ScreenDebugger.Instance.AddDebug("---true");
 
 
             return true;
@@ -192,7 +192,7 @@ namespace Kudan.AR
 
 			bool bAllGood = false;
 
-            ScreenDebugger.Instance.AddDebug("android-StartInputFromCamera");
+            //ScreenDebugger.Instance.AddDebug("android-StartInputFromCamera");
             //return StartInputFromImage(PlaceMarkerlessObject.Instance.texture_source);
             
 
@@ -209,11 +209,11 @@ namespace Kudan.AR
                     //					targetWidth = 1280;
                     //					targetHeight = 720;
                     m_KudanAR_Instance.Call( "startCamera", deviceIndex, targetWidth, targetHeight );
-                    ScreenDebugger.Instance.AddDebug("startCamera = " + deviceIndex+","+ targetWidth+","+ targetHeight);
+                    //ScreenDebugger.Instance.AddDebug("startCamera = " + deviceIndex+","+ targetWidth+","+ targetHeight);
 
                     int[] cameraResolution = new int[ 2 ];
 					cameraResolution = m_KudanAR_Instance.Call<int[]>( "getCameraResolution" );
-                    ScreenDebugger.Instance.AddDebug("cameraResolution = " + cameraResolution[0]+","+ cameraResolution[1]);
+                    //ScreenDebugger.Instance.AddDebug("cameraResolution = " + cameraResolution[0]+","+ cameraResolution[1]);
 
                     //
                     if ( m_Width != cameraResolution[ 0 ] || m_Height != cameraResolution[ 1 ] )
@@ -506,15 +506,15 @@ namespace Kudan.AR
 
             if (m_KudanAR_Instance != null)
             {
-                ScreenDebugger.Instance.AddDebugInFrame("updateArbi",30);//here it fails
+                //ScreenDebugger.Instance.AddDebugInFrame("updateArbi",30);//here it fails
 				m_KudanAR_Instance.Call ("updateArbi", _floorHeight);
-                ScreenDebugger.Instance.AddDebug("--updateArbi");
+                //ScreenDebugger.Instance.AddDebug("--updateArbi");
 
                 AndroidJavaObject floorPosition = m_KudanAR_Instance.Get<AndroidJavaObject>("m_FloorPosition");
-                ScreenDebugger.Instance.AddDebug(floorPosition.ToString());
+                //ScreenDebugger.Instance.AddDebug(floorPosition.ToString());
 
                 AndroidJavaObject floorOrientation = m_KudanAR_Instance.Get<AndroidJavaObject>("m_FloorOrientation");
-                ScreenDebugger.Instance.AddDebug(floorOrientation.ToString());
+                //ScreenDebugger.Instance.AddDebug(floorOrientation.ToString());
 
 
                 position.x = floorPosition.Get<float>("x");
@@ -527,8 +527,8 @@ namespace Kudan.AR
                 orientation.z = floorOrientation.Get<float>("z");
                 orientation.w = floorOrientation.Get<float>("w");
 
-                ScreenDebugger.Instance.AddDebug(position.ToString());
-                ScreenDebugger.Instance.AddDebug(orientation.ToString());
+                //ScreenDebugger.Instance.AddDebug(position.ToString());
+                //ScreenDebugger.Instance.AddDebug(orientation.ToString());
 
             }
         }
