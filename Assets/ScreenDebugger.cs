@@ -17,9 +17,9 @@ public class ScreenDebugger : MonoBehaviour
 
     void Start()
     {        
-        camTex = new WebCamTexture();
-        mat_quad_cam_debug.mainTexture = camTex;
-        camTex.Play();
+        //camTex = new WebCamTexture();
+        //mat_quad_cam_debug.mainTexture = camTex;
+        //camTex.Play();
     }
 
     void Update()
