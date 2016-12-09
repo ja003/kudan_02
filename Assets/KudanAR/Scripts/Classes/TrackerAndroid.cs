@@ -1,4 +1,3 @@
-#if UNITY_ANDROID
 
 using UnityEngine;
 using System.Text;
@@ -153,7 +152,7 @@ namespace Kudan.AR
 			return iNumCameras;
 		}
 
-        //this might be it
+        //not working
 		public override bool StartInputFromImage(Texture2D image)
 		{
             Debug.Log("android");
@@ -683,5 +682,3 @@ namespace Kudan.AR
 		}
 	}
 };
-
-#endif

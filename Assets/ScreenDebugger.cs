@@ -13,16 +13,18 @@ public class ScreenDebugger : MonoBehaviour
     public Texture roadTex;
 
     WebCamTexture camTex;
+    public Material mat_quad_cam_debug;
 
     void Start()
-    {
+    {        
         camTex = new WebCamTexture();
+        mat_quad_cam_debug.mainTexture = camTex;
         camTex.Play();
     }
 
     void Update()
     {
-        roadTex = camTex;
+        //roadTex = camTex;
     }
 
     private void Awake()
